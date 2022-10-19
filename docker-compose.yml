@@ -2,6 +2,7 @@ version: '3'
 services:
     postgres:
         image: postgres
+        restart: "unless-stopped"
         environment:
             - POSTGRES_USER=woofs
             - POSTGRES_PASSWORD=woofs
@@ -12,6 +13,7 @@ services:
         image: dpage/pgadmin4
         container_name: pgadmin4
         hostname: pgadmin4
+        restart: "unless-stopped"
         environment:
             - PGADMIN_DEFAULT_EMAIL=admin@woofs.com
             - PGADMIN_DEFAULT_PASSWORD=woofs
